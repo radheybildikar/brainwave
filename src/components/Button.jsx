@@ -5,24 +5,24 @@ export default function Button({
   href,
   onClick,
   children,
-  px = "px-7",
+  px = "px-8",
   variant = "primary",
 }) {
-  const base = `relative inline-flex items-center justify-center h-11 font-mono text-sm uppercase tracking-wider transition-all duration-300 ${px}`;
+  const base = `relative inline-flex items-center justify-center h-12 font-semibold rounded-full transition-all duration-300 ${px}`;
 
   const variants = {
     primary:
-      "bg-primary text-n-10 font-bold shadow-glow-sm hover:shadow-glow clip-corners",
+      "bg-gradient-to-r from-primary to-accent text-white shadow-glow-sm hover:shadow-glow",
     outline:
-      "border border-primary/40 text-primary hover:bg-primary/10 hover:border-primary",
-    ghost: "text-n-3 hover:text-primary",
+      "border border-n-2/20 text-n-1 hover:border-primary hover:text-primary-light",
+    ghost: "text-n-3 hover:text-primary-light",
   };
 
   const classes = `${base} ${variants[variant] || variants.primary} ${className}`;
   const motionProps = {
-    whileHover: { scale: 1.04 },
-    whileTap: { scale: 0.96 },
-    transition: { duration: 0.15 },
+    whileHover: { scale: 1.05, y: -2 },
+    whileTap: { scale: 0.97 },
+    transition: { duration: 0.2 },
   };
 
   if (href) {
@@ -32,10 +32,6 @@ export default function Button({
         className={classes}
         onClick={onClick}
         {...motionProps}
-        style={{
-          clipPath:
-            "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)",
-        }}
       >
         <span className="relative z-10">{children}</span>
       </motion.a>
@@ -43,15 +39,7 @@ export default function Button({
   }
 
   return (
-    <motion.button
-      className={classes}
-      onClick={onClick}
-      {...motionProps}
-      style={{
-        clipPath:
-          "polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)",
-      }}
-    >
+    <motion.button className={classes} onClick={onClick} {...motionProps}>
       <span className="relative z-10">{children}</span>
     </motion.button>
   );

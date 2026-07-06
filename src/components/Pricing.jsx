@@ -8,40 +8,40 @@ import SignupForm from "./SignupForm";
 const pricingPlans = [
   {
     id: 1,
-    title: "SOLO",
-    description: "For independent freelancers",
-    price: "9",
+    title: "Explorer",
+    description: "For solo trips",
+    price: "700",
     features: [
-      "Up to 10 active clients",
-      "Email drafting",
-      "Deadline tracking",
-      "1 GB storage",
+      "1 itinerary per month",
+      "Basic AI planning",
+      "Price alerts",
+      "Community support",
     ],
   },
   {
     id: 2,
-    title: "TEAM",
-    description: "For small agencies",
-    price: "29",
+    title: "Voyager",
+    description: "For frequent travelers",
+    price: "1200",
     features: [
-      "Unlimited clients",
-      "Meeting summaries",
-      "Invoice follow-ups",
-      "Shared task board",
+      "Unlimited itineraries",
+      "Advanced AI planning",
+      "Real-time re-planning",
       "Priority support",
+      "Group trip planning",
     ],
     highlight: true,
   },
   {
     id: 3,
-    title: "AGENCY",
-    description: "For growing studios",
+    title: "Agency",
+    description: "For travel agencies",
     price: null,
     features: [
-      "Custom workflows",
+      "White-label option",
+      "Bulk itinerary generation",
       "Dedicated support",
-      "Unlimited storage",
-      "SLA guarantee",
+      "API access",
     ],
   },
 ];
@@ -51,12 +51,9 @@ export default function Pricing() {
 
   return (
     <Section id="pricing">
-      <Heading
-        tagline="Simple pricing"
-        title="Pay for what you use, nothing else"
-      />
+      <Heading tagline="Simple pricing" title="Plan your next trip for free" />
 
-      <div className="flex flex-wrap gap-px justify-center items-stretch border border-primary/15 bg-primary/15 max-w-5xl mx-auto">
+      <div className="flex flex-wrap gap-6 justify-center items-stretch max-w-6xl mx-auto">
         {pricingPlans.map(function (plan, i) {
           return (
             <motion.div
@@ -65,28 +62,33 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className={`relative flex-1 min-w-[280px] p-8 flex flex-col ${plan.highlight ? "bg-n-8" : "bg-n-9"}`}
+              whileHover={{ y: -8 }}
+              className={`relative flex-1 min-w-[280px] p-8 lg:p-10 rounded-3xl flex flex-col ${
+                plan.highlight
+                  ? "bg-gradient-to-b from-primary/20 to-n-8 border-2 border-primary shadow-glow"
+                  : "bg-n-8 border border-n-2/10"
+              }`}
             >
               {plan.highlight && (
-                <span className="absolute top-0 left-0 right-0 h-[2px] bg-primary animate-pulse-glow" />
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-primary to-leaf text-white text-xs font-bold rounded-full">
+                  MOST POPULAR
+                </span>
               )}
 
-              <span className="font-mono text-xs tracking-widest text-primary mb-2">
-                {plan.title}
-              </span>
+              <h4 className="h4 mb-2">{plan.title}</h4>
               <p className="text-n-3 text-sm mb-6">{plan.description}</p>
 
               <div className="mb-8">
                 {plan.price ? (
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold font-mono text-n-1">
+                    <span className="text-5xl font-bold text-gradient">
                       ${plan.price}
                     </span>
-                    <span className="text-n-4 font-mono text-sm">/mo</span>
+                    <span className="text-n-4">/month</span>
                   </div>
                 ) : (
-                  <div className="text-2xl font-bold font-mono text-primary">
-                    CUSTOM
+                  <div className="text-2xl font-bold text-gradient">
+                    Custom pricing
                   </div>
                 )}
               </div>
@@ -110,16 +112,16 @@ export default function Pricing() {
                 ) : (
                   <Button
                     onClick={function () {
-                      if (plan.price) {
+                      if (plan.price !== null) {
                         setActiveForm(plan.id);
                       } else {
-                        window.location.href = "mailto:sales@brainwave.com";
+                        window.location.href = "mailto:sales@wayfare.com";
                       }
                     }}
                     className="w-full mb-8 justify-center"
                     variant={plan.highlight ? "primary" : "outline"}
                   >
-                    {plan.price ? "Get started" : "Contact sales"}
+                    {plan.price !== null ? "Get Started" : "Contact Sales"}
                   </Button>
                 )}
               </AnimatePresence>
@@ -129,9 +131,9 @@ export default function Pricing() {
                   return (
                     <li
                       key={idx}
-                      className="flex items-center gap-3 py-3 border-t border-primary/10 text-sm"
+                      className="flex items-center gap-3 py-3 border-t border-n-2/10 text-sm"
                     >
-                      <span className="text-primary">›</span>
+                      <span className="text-primary font-bold">✓</span>
                       <span>{feature}</span>
                     </li>
                   );

@@ -12,7 +12,9 @@ const Section = forwardRef(function Section(
 
   return (
     <section ref={ref} id={id} className={sectionClasses}>
-      <div className="w-full max-w-7xl px-5 mx-auto">{children}</div>
+      <div className="w-full max-w-screen-2xl px-6 lg:px-12 xl:px-20 mx-auto">
+        {children}
+      </div>
     </section>
   );
 });

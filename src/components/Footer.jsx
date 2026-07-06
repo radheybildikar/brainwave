@@ -1,25 +1,25 @@
 const footerLinks = [
-  { title: "Features", url: "#features" },
+  { title: "Destinations", url: "#destinations" },
+  { title: "How it works", url: "#how-it-works" },
   { title: "Pricing", url: "#pricing" },
-  { title: "Roadmap", url: "#roadmap" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-primary/15 py-10 flex justify-center">
-      <div className="w-full max-w-7xl px-5 flex flex-col sm:flex-row justify-between items-center gap-6">
-        <p className="text-sm font-mono text-n-4">
-          © {new Date().getFullYear()} BRAINWAVE. ALL RIGHTS RESERVED.
+    <footer className="border-t border-n-2/10 py-10 flex justify-center">
+      <div className="w-full max-w-screen-2xl px-6 lg:px-12 xl:px-20 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <p className="text-sm text-n-4">
+          © {new Date().getFullYear()} Wayfare. All rights reserved.
         </p>
-        <div className="flex gap-8 text-sm font-mono">
+        <div className="flex gap-8 text-sm">
           {footerLinks.map(function (link, idx) {
             return (
               <a
                 key={idx}
                 href={link.url}
-                className="text-n-4 hover:text-primary transition-colors"
+                className="text-n-4 hover:text-primary-light transition-colors"
               >
-                {link.title.toUpperCase()}
+                {link.title}
               </a>
             );
           })}

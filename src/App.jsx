@@ -1,11 +1,13 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Benefits from "./components/Benefits";
-import Collaboration from "./components/Collaboration";
-import Services from "./components/Services";
+import HowItWorks from "./components/HowItWorks";
+import Destinations from "./components/Destinations";
+import ItineraryPreview from "./components/ItineraryPreview";
 import Pricing from "./components/Pricing";
-import RoadMap from "./components/RoadMap";
+import Testimonials from "./components/Testimonials";
+import Team from "./components/Team";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
@@ -15,11 +17,13 @@ function App() {
         <Header />
         <main className="pt-16 md:pt-20">
           <Hero />
-          <Benefits />
-          <Collaboration />
-          <Services />
+          <HowItWorks />
+          <Destinations />
+          <ItineraryPreview />
           <Pricing />
-          <RoadMap />
+          <Testimonials />
+          <Team />
+          <Contact />
           <Footer />
         </main>
       </div>
