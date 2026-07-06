@@ -1,101 +1,61 @@
 import { motion } from "framer-motion";
-import Section from "./Section";
-import Heading from "./Heading";
+import { Link } from "react-router-dom";
+import destinations from "../data/destinations";
 
-const destinations = [
-  {
-    id: 1,
-    name: "Santorini, Greece",
-    price: "$890",
-    days: "5 days",
-    img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80",
-  },
-  {
-    id: 2,
-    name: "Kyoto, Japan",
-    price: "$1,240",
-    days: "7 days",
-    img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80",
-  },
-  {
-    id: 3,
-    name: "Bali, Indonesia",
-    price: "$650",
-    days: "6 days",
-    img: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80",
-  },
-  {
-    id: 4,
-    name: "Reykjavik, Iceland",
-    price: "$1,050",
-    days: "4 days",
-    img: "https://images.unsplash.com/photo-1504829857797-ddff29c27927?w=600&q=80",
-  },
-  {
-    id: 5,
-    name: "Marrakech, Morocco",
-    price: "$720",
-    days: "5 days",
-    img: "https://images.unsplash.com/photo-1597212720158-3e9a8a7f6b87?w=600&q=80",
-  },
-  {
-    id: 6,
-    name: "Queenstown, New Zealand",
-    price: "$1,380",
-    days: "8 days",
-    img: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=600&q=80",
-  },
-];
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: function (i) {
-    return { opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.08 } };
-  },
-};
-
-export default function Destinations() {
+const Destinations = () => {
   return (
-    <Section id="destinations">
-      <Heading
-        tagline="Trending now"
-        title="Where travelers are going this season"
-      />
+    <section id="destinations" className="relative py-20 px-6 lg:px-16 bg-n-9">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <p className="tagline mb-4">Where to next</p>
+          <h2 className="h2 mb-4">
+            Popular <span className="text-gradient">Destinations</span>
+          </h2>
+          <p className="body-1 text-white/60 max-w-xl mx-auto">
+            Handpicked places our travelers keep coming back to.
+          </p>
+        </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {destinations.map(function (item, i) {
-          return (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {destinations.map((dest, i) => (
             <motion.div
-              key={item.id}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-              whileHover={{ y: -10 }}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer"
+              key={dest.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
             >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              <Link
+                to={`/destinations/${dest.id}`}
+                className="glass block rounded-2xl overflow-hidden group hover:border-white/20 transition-colors duration-300"
+              >
+                <div
+                  className="h-48 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${dest.image})`,
+                    backgroundColor: "#111827",
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-n-9 via-n-9/20 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h5 className="h5 mb-1">{item.name}</h5>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-n-2">{item.days}</span>
-                  <span className="text-lg font-bold text-gradient">
-                    {item.price}
+                <div className="p-6">
+                  <p className="tagline mb-2">{dest.tagline}</p>
+                  <h3 className="h5 mb-2">{dest.name}</h3>
+                  <div className="flex items-center justify-between text-white/60 body-2 mb-4">
+                    <span>{dest.duration}</span>
+                    <span className="text-cyan-400 font-semibold">
+                      from {dest.price}
+                    </span>
+                  </div>
+                  <span className="body-2 text-cyan-400 group-hover:underline">
+                    View details →
                   </span>
                 </div>
-              </div>
+              </Link>
             </motion.div>
-          );
-        })}
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
-}
+};
+
+export default Destinations;
