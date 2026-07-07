@@ -50,3 +50,60 @@ class BookingOut(BookingCreate):
 
     class Config:
         from_attributes = True
+
+# Gallery
+class GalleryImageOut(BaseModel):
+    id: int
+    image_url: str
+    caption: Optional[str] = None
+    location: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+# Stats
+class StatOut(BaseModel):
+    id: int
+    label: str
+    value: str
+    icon: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+# Blog
+class BlogPostBase(BaseModel):
+    id: str
+    title: str
+    excerpt: Optional[str] = None
+    content: Optional[str] = None
+    cover_image: Optional[str] = None
+    author: Optional[str] = None
+    read_time: Optional[str] = None
+
+class BlogPostOut(BlogPostBase):
+    published_at: datetime
+
+    class Config:
+        from_attributes = True
+
+# FAQ
+class FAQOut(BaseModel):
+    id: int
+    question: str
+    answer: str
+    order: int
+
+    class Config:
+        from_attributes = True
+
+# Newsletter
+class NewsletterCreate(BaseModel):
+    email: EmailStr
+
+class NewsletterOut(NewsletterCreate):
+    id: int
+    subscribed_at: datetime
+
+    class Config:
+        from_attributes = True

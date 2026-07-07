@@ -12,7 +12,7 @@ app = FastAPI(title="Travel Site API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite dev server
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -58,3 +58,35 @@ def submit_booking(booking: schemas.BookingCreate, db: Session = Depends(get_db)
 @app.get("/bookings", response_model=List[schemas.BookingOut])
 def list_bookings(db: Session = Depends(get_db)):
     return crud.get_bookings(db)
+
+# Gallery
+@app.get("/gallery", response_model=List[schemas.GalleryImageOut])
+def read_gallery(db: Session = Depends(get_db)):
+    return crud.get_gallery(db)
+
+# Stats
+@app.get("/stats", response_model=List[schemas.StatOut])
+def read_stats(db: Session = Depends(get_db)):
+    return crud.get_stats(db)
+
+# Blog
+@app.get("/blog", response_model=List[schemas.BlogPostOut])
+def read_blog_posts(db: Session = Depends(get_db)):
+    return crud.get_blog_posts(db)
+
+@app.get("/blog/{post_id}", response_model=schemas.BlogPostOut)
+def read_blog_post(post_id: str, db: Session = Depends(get_db)):
+    post = crud.get_blog_post(db, post_id)
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    return post
+
+# FAQ
+@app.get("/faqs", response_model=List[schemas.FAQOut])
+def read_faqs(db: Session = Depends(get_db)):
+    return crud.get_faqs(db)
+
+# Newsletter
+@app.post("/newsletter", response_model=schemas.NewsletterOut)
+def subscribe(sub: schemas.NewsletterCreate, db: Session = Depends(get_db)):
+    return crud.create_subscriber(db, sub)

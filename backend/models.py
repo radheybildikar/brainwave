@@ -36,3 +36,46 @@ class Booking(Base):
     num_travelers = Column(Integer, default=1)
     notes = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class GalleryImage(Base):
+    __tablename__ = "gallery_images"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    image_url = Column(String(500), nullable=False)
+    caption = Column(String(200))
+    location = Column(String(100))
+
+class Stat(Base):
+    __tablename__ = "stats"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    label = Column(String(100), nullable=False)
+    value = Column(String(50), nullable=False)
+    icon = Column(String(50))
+
+class BlogPost(Base):
+    __tablename__ = "blog_posts"
+
+    id = Column(String(80), primary_key=True, index=True)
+    title = Column(String(200), nullable=False)
+    excerpt = Column(String(300))
+    content = Column(Text)
+    cover_image = Column(String(500))
+    author = Column(String(100))
+    read_time = Column(String(20))
+    published_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class FAQ(Base):
+    __tablename__ = "faqs"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    question = Column(String(300), nullable=False)
+    answer = Column(Text, nullable=False)
+    order = Column(Integer, default=0)
+
+class NewsletterSubscriber(Base):
+    __tablename__ = "newsletter_subscribers"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    email = Column(String(150), nullable=False, unique=True)
+    subscribed_at = Column(DateTime(timezone=True), server_default=func.now())

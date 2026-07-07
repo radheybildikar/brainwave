@@ -36,3 +36,35 @@ def create_booking(db: Session, booking: schemas.BookingCreate):
 
 def get_bookings(db: Session):
     return db.query(models.Booking).order_by(models.Booking.created_at.desc()).all()
+
+# Gallery
+def get_gallery(db: Session):
+    return db.query(models.GalleryImage).all()
+
+# Stats
+def get_stats(db: Session):
+    return db.query(models.Stat).all()
+
+# Blog
+def get_blog_posts(db: Session):
+    return db.query(models.BlogPost).order_by(models.BlogPost.published_at.desc()).all()
+
+def get_blog_post(db: Session, post_id: str):
+    return db.query(models.BlogPost).filter(models.BlogPost.id == post_id).first()
+
+# FAQ
+def get_faqs(db: Session):
+    return db.query(models.FAQ).order_by(models.FAQ.order.asc()).all()
+
+# Newsletter
+def create_subscriber(db: Session, sub: schemas.NewsletterCreate):
+    existing = db.query(models.NewsletterSubscriber).filter(
+        models.NewsletterSubscriber.email == sub.email
+    ).first()
+    if existing:
+        return existing
+    db_sub = models.NewsletterSubscriber(**sub.model_dump())
+    db.add(db_sub)
+    db.commit()
+    db.refresh(db_sub)
+    return db_sub
