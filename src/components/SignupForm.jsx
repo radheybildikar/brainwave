@@ -13,15 +13,14 @@ export default function SignupForm({ plan = null, onSuccess }) {
     setErrorMsg("");
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/signup`, {
+      const response = await fetch("http://localhost:8000/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, plan }),
+        body: JSON.stringify({ email }),
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || "Signup failed");
+        throw new Error("Signup failed. Please try again.");
       }
 
       const data = await response.json();
