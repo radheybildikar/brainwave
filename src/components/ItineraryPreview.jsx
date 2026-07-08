@@ -4,28 +4,28 @@ import Section from "./Section";
 const itineraryDays = [
   {
     day: "Day 1",
-    title: "Arrival & Old Town",
+    title: "Arrival & Backwaters",
     activities: [
-      "Check in to boutique hotel",
-      "Sunset at Oia village",
-      "Dinner at local taverna",
+      "Check in to houseboat stay",
+      "Sunset cruise on Vembanad Lake",
+      "Dinner with local seafood thali",
     ],
   },
   {
     day: "Day 2",
-    title: "Caldera Exploration",
+    title: "Village & Culture",
     activities: [
-      "Boat tour to volcanic islands",
-      "Wine tasting at vineyard",
-      "Beach time at Perissa",
+      "Village walk through paddy fields",
+      "Ayurvedic massage session",
+      "Kathakali dance performance",
     ],
   },
   {
     day: "Day 3",
-    title: "Culture & Cuisine",
+    title: "Hills & Relaxation",
     activities: [
-      "Akrotiri archaeological site",
-      "Cooking class",
+      "Drive up to Munnar tea gardens",
+      "Spice plantation tour",
       "Free evening",
     ],
   },
@@ -47,15 +47,15 @@ export default function ItineraryPreview() {
             <span className="text-gradient">built in seconds.</span>
           </h2>
           <p className="body-1 text-n-3 mb-8">
-            No more 20 open tabs comparing flights and hotels. Wayfare hands you
-            a day-by-day plan you can edit, share, and book directly — all
-            matched to your budget and travel style.
+            No more 20 open tabs comparing routes and stays. Brainwave hands you
+            a day-by-day plan you can edit and share — matched to your budget
+            and travel style.
           </p>
           <ul className="space-y-3">
             {[
-              "Real flight + hotel pricing",
+              "Curated stays and local pricing",
               "Local guide recommendations",
-              "Automatic re-planning for delays",
+              "Editable, shareable day plans",
             ].map(function (text, i) {
               return (
                 <motion.li
@@ -84,7 +84,7 @@ export default function ItineraryPreview() {
           className="glass rounded-3xl p-6"
         >
           <div className="flex items-center justify-between mb-6">
-            <h5 className="font-bold">Santorini Trip</h5>
+            <h5 className="font-bold">Kerala Backwaters Trip</h5>
             <span className="text-xs px-3 py-1 rounded-full bg-leaf/20 text-leaf">
               5 days planned
             </span>
