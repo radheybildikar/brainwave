@@ -17,7 +17,7 @@ export default function SignupForm({ onSuccess }) {
       const response = await fetch(`${API_URL}/newsletter`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ name, email }),
       });
 
       if (!response.ok) {

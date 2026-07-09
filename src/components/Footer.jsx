@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="border-t border-n-2/10 py-10 flex justify-center">
       <div className="w-full max-w-screen-2xl px-6 lg:px-12 xl:px-20 flex flex-col sm:flex-row justify-between items-center gap-6">
         <p className="text-sm text-n-4">
-          © {new Date().getFullYear()} Wayfare. All rights reserved.
+          © {new Date().getFullYear()} Brainwave. All rights reserved.
         </p>
         <div className="flex gap-8 text-sm">
           {footerLinks.map(function (link, idx) {

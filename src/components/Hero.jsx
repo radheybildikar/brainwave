@@ -52,8 +52,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="body-d1 max-w-2xl mb-10 text-n-3 lg:text-xl"
         >
-          Describe your trip in plain language. Wayfare builds a full itinerary,
-          finds the best prices, and adjusts in real time as plans change.
+          Describe your trip in plain language. Brainwave builds a full
+          itinerary, finds the best prices, and adjusts in real time as plans
+          change.
         </motion.p>
 
         <motion.div

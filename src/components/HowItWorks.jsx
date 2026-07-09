@@ -12,7 +12,7 @@ const steps = [
   {
     id: 2,
     title: "AI builds your itinerary",
-    text: "Wayfare generates a day-by-day plan with flights, stays, and activities matched to you.",
+    text: "Brainwave generates a day-by-day plan with flights, stays, and activities matched to you.",
     icon: "🤖",
   },
   {

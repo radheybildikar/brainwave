@@ -2,6 +2,13 @@ from sqlalchemy import Column, Integer, String, Text, Float, DateTime, JSON
 from sqlalchemy.sql import func
 from database import Base
 
+class NewsletterSubscriber(Base):
+    __tablename__ = "newsletter_subscribers"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    name = Column(String(150), nullable=True)
+    email = Column(String(150), nullable=False, unique=True)
+    subscribed_at = Column(DateTime(timezone=True), server_default=func.now())
 class Destination(Base):
     __tablename__ = "destinations"
 
@@ -72,10 +79,3 @@ class FAQ(Base):
     question = Column(String(300), nullable=False)
     answer = Column(Text, nullable=False)
     order = Column(Integer, default=0)
-
-class NewsletterSubscriber(Base):
-    __tablename__ = "newsletter_subscribers"
-
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    email = Column(String(150), nullable=False, unique=True)
-    subscribed_at = Column(DateTime(timezone=True), server_default=func.now())

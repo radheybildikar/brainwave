@@ -41,7 +41,7 @@ export default function Header() {
             ✈️
           </motion.div>
           <span className="font-bold text-lg group-hover:text-primary-light transition-colors">
-            Wayfare
+            Brainwave
           </span>
         </a>
 

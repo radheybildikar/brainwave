@@ -115,7 +115,7 @@ export default function Pricing() {
                       if (plan.price !== null) {
                         setActiveForm(plan.id);
                       } else {
-                        window.location.href = "mailto:sales@wayfare.com";
+                        window.location.href = "mailto:sales@Brainwave.com";
                       }
                     }}
                     className="w-full mb-8 justify-center"

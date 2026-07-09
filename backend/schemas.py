@@ -99,6 +99,7 @@ class FAQOut(BaseModel):
 
 # Newsletter
 class NewsletterCreate(BaseModel):
+    name: Optional[str] = None
     email: EmailStr
 
 class NewsletterOut(NewsletterCreate):
