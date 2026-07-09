@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { API_URL } from "../config";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ const BlogDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/blog/${id}`)
+    fetch(`${API_URL}/blog/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_URL } from "../config";
 
 const DestinationDetail = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const DestinationDetail = () => {
   const [status, setStatus] = useState("idle");
 
   useEffect(() => {
-    fetch(`http://localhost:8000/destinations/${id}`)
+    fetch(`${API_URL}/destinations/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Not found");
         return res.json();
@@ -42,7 +43,7 @@ const DestinationDetail = () => {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("http://localhost:8000/bookings", {
+      const res = await fetch(`${API_URL}/bookings`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

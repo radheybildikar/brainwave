@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { API_URL } from "../config";
 
 const Stats = () => {
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/stats")
+    fetch(`${API_URL}/stats`)
       .then((res) => res.json())
       .then(setStats)
       .catch((err) => console.error("Failed to fetch stats:", err));

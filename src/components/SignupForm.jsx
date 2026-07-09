@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { API_URL } from "../config";
 
-export default function SignupForm({ plan = null, onSuccess }) {
+export default function SignupForm({ onSuccess }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle");
@@ -13,7 +14,7 @@ export default function SignupForm({ plan = null, onSuccess }) {
     setErrorMsg("");
 
     try {
-      const response = await fetch("http://localhost:8000/newsletter", {
+      const response = await fetch(`${API_URL}/newsletter`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

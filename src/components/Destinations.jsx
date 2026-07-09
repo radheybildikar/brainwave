@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config";
 
 const Destinations = () => {
   const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/destinations")
+    fetch(`${API_URL}/destinations`)
       .then((res) => res.json())
       .then((data) => {
         setDestinations(data);

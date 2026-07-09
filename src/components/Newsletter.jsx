@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { API_URL } from "../config";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ const Newsletter = () => {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("http://localhost:8000/newsletter", {
+      const res = await fetch(`${API_URL}/newsletter`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

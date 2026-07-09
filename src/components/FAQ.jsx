@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_URL } from "../config";
 
 const FAQ = () => {
   const [faqs, setFaqs] = useState([]);
   const [openId, setOpenId] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/faqs")
+    fetch(`${API_URL}/faqs`)
       .then((res) => res.json())
       .then(setFaqs)
       .catch((err) => console.error("Failed to fetch FAQs:", err));

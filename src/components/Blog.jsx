@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/blog")
+    fetch(`${API_URL}/blog`)
       .then((res) => res.json())
       .then(setPosts)
       .catch((err) => console.error("Failed to fetch blog posts:", err));

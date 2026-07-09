@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { API_URL } from "../config";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/gallery")
+    fetch(`${API_URL}/gallery`)
       .then((res) => res.json())
       .then(setImages)
       .catch((err) => console.error("Failed to fetch gallery:", err));
