@@ -1,17 +1,34 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { API_URL } from "../config";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", form);
-    setForm({ name: "", email: "", message: "" });
+    setStatus("sending");
+
+    try {
+      const res = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed to send message");
+
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -111,10 +128,22 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-400 text-white font-semibold hover:opacity-90 transition-opacity"
+            disabled={status === "sending"}
+            className="w-full py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-400 text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            Send Message
+            {status === "sending" ? "Sending..." : "Send Message"}
           </button>
+
+          {status === "sent" && (
+            <p className="body-2 text-green-400 text-center">
+              Message sent! We'll get back to you soon.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="body-2 text-red-400 text-center">
+              Something went wrong. Please try again.
+            </p>
+          )}
         </motion.form>
       </div>
     </section>
