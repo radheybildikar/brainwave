@@ -58,10 +58,10 @@ const Contact = () => {
                 @
               </span>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:radheybildikar007@gmail.com"
                 className="body-2 text-white/80 hover:text-cyan-400 transition-colors"
               >
-                your.email@example.com
+                radheybildikar007@gmail.com
               </a>
             </div>
 
@@ -73,7 +73,7 @@ const Contact = () => {
                 href="tel:+918888284107"
                 className="body-2 text-white/80 hover:text-cyan-400 transition-colors"
               >
-                +91 88882 84107
+                +91 8888284107
               </a>
             </div>
           </div>
