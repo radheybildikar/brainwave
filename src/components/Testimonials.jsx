@@ -6,23 +6,23 @@ const testimonials = [
   {
     id: 1,
     name: "Priya Sharma",
-    trip: "Bali, 6 days",
+    trip: "Kerala, 6 days",
     quote:
-      "Planned my entire honeymoon in 10 minutes. The itinerary felt like it was made by a friend who actually knew Bali.",
+      "Planned my entire honeymoon in 10 minutes. The itinerary felt like it was made by a friend who actually knew Kerala.",
     img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
   },
   {
     id: 2,
     name: "Marcus Chen",
-    trip: "Japan, 7 days",
+    trip: "Rajasthan, 7 days",
     quote:
-      "Caught a flight price drop alert and saved $300. The re-planning feature saved my trip when my flight got cancelled.",
+      "Caught a price drop alert and saved Rs 8,000. The re-planning feature saved my trip when my train got rescheduled.",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
   },
   {
     id: 3,
     name: "Elena Rodriguez",
-    trip: "Iceland, 4 days",
+    trip: "Himachal Pradesh, 4 days",
     quote:
       "I'm not a planner type at all, so this was perfect. Just described what I wanted and got a full plan back.",
     img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",

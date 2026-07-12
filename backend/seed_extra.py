@@ -5,12 +5,12 @@ models.Base.metadata.create_all(bind=engine)
 db = SessionLocal()
 
 gallery = [
-    {"image_url": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80", "caption": "Mountain sunrise", "location": "Swiss Alps"},
-    {"image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80", "caption": "Beach escape", "location": "Maldives"},
-    {"image_url": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80", "caption": "City lights", "location": "Tokyo"},
-    {"image_url": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80", "caption": "Desert dunes", "location": "Dubai"},
-    {"image_url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80", "caption": "Alpine lake", "location": "Canada"},
-    {"image_url": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80", "caption": "Forest trail", "location": "New Zealand"},
+    {"image_url": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&q=80", "caption": "Sunset by the coast", "location": "Goa"},
+    {"image_url": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=600&q=80", "caption": "Backwater cruise", "location": "Kerala"},
+    {"image_url": "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&q=80", "caption": "Fort and palace views", "location": "Rajasthan"},
+    {"image_url": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80", "caption": "Mountain valley", "location": "Himachal Pradesh"},
+    {"image_url": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=80", "caption": "Timeless monument", "location": "Agra"},
+    {"image_url": "https://images.unsplash.com/photo-1464093024816-d9eb25eeaf6c?w=600&q=80", "caption": "High-altitude trails", "location": "Ladakh"},
 ]
 
 stats = [
