@@ -17,6 +17,7 @@ import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 function Home() {
   return (
@@ -41,6 +42,7 @@ function Home() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="bg-n-9 max-w-[1920px] mx-auto overflow-hidden">
         <Header />
         <main className="pt-16 md:pt-20">
