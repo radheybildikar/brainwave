@@ -48,6 +48,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/destinations/:id" element={<DestinationDetail />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
