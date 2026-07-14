@@ -48,6 +48,8 @@ const Destinations = () => {
                 >
                   <div
                     className="h-48 bg-cover bg-center"
+                    role="img"
+                    aria-label={`Photo of ${dest.name}`}
                     style={{
                       backgroundImage: `url(${dest.image})`,
                       backgroundColor: "#111827",
