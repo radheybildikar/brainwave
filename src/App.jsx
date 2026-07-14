@@ -16,6 +16,7 @@ import Newsletter from "./components/Newsletter";
 import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 function Home() {
   return (
